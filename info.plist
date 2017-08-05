@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>dk.peoplefindthor.searchsocialmedia</string>
+	<key>category</key>
+	<string>Internet</string>
+	<key>connections</key>
+	<dict>
+		<key>08B817D5-F649-49F7-92E4-05715ED36DBC</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>41ED6901-7F2F-402D-90A0-898BD2D57B9B</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>35DF73F7-664E-49C8-A3FC-5200CAD59E23</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1C72B3E7-FB83-48A2-AC50-3046B9E704AF</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>4E2577B9-4D49-4859-972D-62BDFDA92127</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>7770C960-7C9A-4B3F-92FB-972AE4F943D7</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>58EA5576-5946-4B15-A90C-CD8EB243FA63</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>08B817D5-F649-49F7-92E4-05715ED36DBC</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>897A348C-C624-4DF8-90ED-783ABB1A1E95</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>35DF73F7-664E-49C8-A3FC-5200CAD59E23</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>BB08E49C-497F-431E-B7E5-1BE63B66BFD4</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>4E2577B9-4D49-4859-972D-62BDFDA92127</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Øjvind Søgaard Andersen</string>
+	<key>description</key>
+	<string>An Alfred workflow for searching Facebook, LinkedIn and Twitter</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Search Social Media</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>69</integer>
+				<key>script</key>
+				<string>on run argv
+  set input to item 1 of argv
+
+tell application "System Events"		activate		try						set thelist to choose from list {"all", "posts", "people", "photos", "videos", "pages", "places", "groups", "apps", "events"} with prompt "Search Facebook for" with multiple selections allowed and empty selection allowed						if thelist is false then return						repeat with theItem in thelist				if (theItem as string) = ("all") then					open location "https://www.facebook.com/search/top/?q=" &amp; (input as string)				else					open location "https://www.facebook.com/search/" &amp; (theItem as string) &amp; "/?q=" &amp; (input as string)				end if			end repeat					end try	end tell	end run</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>6</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>41ED6901-7F2F-402D-90A0-898BD2D57B9B</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>1</integer>
+				<key>focusedappvariable</key>
+				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
+				<key>hotkey</key>
+				<integer>3</integer>
+				<key>hotmod</key>
+				<integer>1310720</integer>
+				<key>hotstring</key>
+				<string>F</string>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>58EA5576-5946-4B15-A90C-CD8EB243FA63</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>sfacebook</string>
+				<key>subtext</key>
+				<string></string>
+				<key>text</key>
+				<string>Look up on Facebook</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>08B817D5-F649-49F7-92E4-05715ED36DBC</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>1</integer>
+				<key>focusedappvariable</key>
+				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
+				<key>hotkey</key>
+				<integer>17</integer>
+				<key>hotmod</key>
+				<integer>1310720</integer>
+				<key>hotstring</key>
+				<string>T</string>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>BB08E49C-497F-431E-B7E5-1BE63B66BFD4</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>69</integer>
+				<key>script</key>
+				<string>on run argv
+  set input to item 1 of argv
+	tell application "System Events"		activate		try						set thelist to choose from list {"top", "latest", "people", "photos", "videos", "news", "broadcasts"} with prompt "Search Twitter for" with multiple selections allowed and empty selection allowed						if thelist is false then return						repeat with theItem in thelist				if (theItem as string) = ("top") then					open location "https://twitter.com/search?news&amp;q=" &amp; (input as string)				else if (theItem as string) = ("latest") then					open location "https://twitter.com/search?f=tweets&amp;q=" &amp; (input as string)				else if (theItem as string) = ("people") then					open location "https://twitter.com/search?f=users&amp;q=" &amp; (input as string)				else if (theItem as string) = ("photos") then					open location "https://twitter.com/search?f=images&amp;q=" &amp; (input as string)				else					open location "https://twitter.com/search?f=" &amp; (theItem as string) &amp; "&amp;q=" &amp; (input as string)				end if			end repeat					end try	end tell	end run</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>6</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>7770C960-7C9A-4B3F-92FB-972AE4F943D7</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>stwitter</string>
+				<key>subtext</key>
+				<string></string>
+				<key>text</key>
+				<string>Look up on Twitter</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>4E2577B9-4D49-4859-972D-62BDFDA92127</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>69</integer>
+				<key>script</key>
+				<string>on run argv
+  set input to item 1 of argv
+	tell application "System Events"		activate		try						set thelist to choose from list {"top", "people", "jobs", "posts", "companies", "groups", "schools"} with prompt "Search LinkedIn for" with multiple selections allowed and empty selection allowed						if thelist is false then return						repeat with theItem in thelist				if (theItem as string) = ("top") then					open location "https://www.linkedin.com/search/results/index/?keywords=" &amp; (input as string)				else if (theItem as string) = ("posts") then					open location "https://www.linkedin.com/search/results/content/?keywords=" &amp; (input as string)				else					open location "https://www.linkedin.com/search/results/" &amp; (theItem as string) &amp; "/?keywords=" &amp; (input as string)				end if			end repeat					end try	end tell	end run</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>6</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>1C72B3E7-FB83-48A2-AC50-3046B9E704AF</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>slinkedin</string>
+				<key>subtext</key>
+				<string></string>
+				<key>text</key>
+				<string>Look up on LinkedIn</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>35DF73F7-664E-49C8-A3FC-5200CAD59E23</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>1</integer>
+				<key>focusedappvariable</key>
+				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
+				<key>hotkey</key>
+				<integer>37</integer>
+				<key>hotmod</key>
+				<integer>1310720</integer>
+				<key>hotstring</key>
+				<string>L</string>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>897A348C-C624-4DF8-90ED-783ABB1A1E95</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>08B817D5-F649-49F7-92E4-05715ED36DBC</key>
+		<dict>
+			<key>xpos</key>
+			<integer>320</integer>
+			<key>ypos</key>
+			<integer>70</integer>
+		</dict>
+		<key>1C72B3E7-FB83-48A2-AC50-3046B9E704AF</key>
+		<dict>
+			<key>xpos</key>
+			<integer>610</integer>
+			<key>ypos</key>
+			<integer>310</integer>
+		</dict>
+		<key>35DF73F7-664E-49C8-A3FC-5200CAD59E23</key>
+		<dict>
+			<key>xpos</key>
+			<integer>320</integer>
+			<key>ypos</key>
+			<integer>310</integer>
+		</dict>
+		<key>41ED6901-7F2F-402D-90A0-898BD2D57B9B</key>
+		<dict>
+			<key>xpos</key>
+			<integer>610</integer>
+			<key>ypos</key>
+			<integer>70</integer>
+		</dict>
+		<key>4E2577B9-4D49-4859-972D-62BDFDA92127</key>
+		<dict>
+			<key>xpos</key>
+			<integer>320</integer>
+			<key>ypos</key>
+			<integer>190</integer>
+		</dict>
+		<key>58EA5576-5946-4B15-A90C-CD8EB243FA63</key>
+		<dict>
+			<key>xpos</key>
+			<integer>50</integer>
+			<key>ypos</key>
+			<integer>70</integer>
+		</dict>
+		<key>7770C960-7C9A-4B3F-92FB-972AE4F943D7</key>
+		<dict>
+			<key>xpos</key>
+			<integer>610</integer>
+			<key>ypos</key>
+			<integer>190</integer>
+		</dict>
+		<key>897A348C-C624-4DF8-90ED-783ABB1A1E95</key>
+		<dict>
+			<key>xpos</key>
+			<integer>50</integer>
+			<key>ypos</key>
+			<integer>310</integer>
+		</dict>
+		<key>BB08E49C-497F-431E-B7E5-1BE63B66BFD4</key>
+		<dict>
+			<key>xpos</key>
+			<integer>50</integer>
+			<key>ypos</key>
+			<integer>190</integer>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>https://peoplefindthor.dk</string>
+</dict>
+</plist>
